@@ -13,8 +13,8 @@ let newsIdx = document.querySelectorAll('#news .page-idx');
 let index2 = 0;
 
 
-
-// workSlider pagination prev & next
+//// work_Slider
+// 다음 & 이전 버튼
 workNext.addEventListener('click', function (e) {
     e.preventDefault();
     index1 += 1;
@@ -63,29 +63,60 @@ workPrev.addEventListener('click', function (e) {
     }
 });
 
+// 인덱스 버튼
+workIdx.forEach(function (i, a, b) {
+    workIdx[a].addEventListener('click', function (e) {
+        e.preventDefault();
+        index1 = a;
 
-/// page-idx 공통 함수
-function idxBtn(btns, slider, item) {
-    btns.forEach(function (i, a, b) {
-        btns[a].addEventListener('click', function (e) {
-            e.preventDefault();
-            index1 = a;
+        newsSlider.style.transform = "translateX(-" + newsSlider.clientWidth / workSliderItem.length * a + "px)";
 
-            slider.style.transform = "translateX(-" + slider.clientWidth / item.length * a + "px)";
-
-            // 모든 요소에 active 제거
-            btns.forEach(function (i) {
-                i.classList.remove('active')
-            })
-
-            // 클릭 요소에 active 추가
-            this.classList.add('active')
+        // 모든 요소에 active 제거
+        workIdx.forEach(function (i) {
+            i.classList.remove('active')
         })
-    });
-}
 
-// work page-idx
-idxBtn(workIdx, workSlider, workSliderItem);
+        // 클릭 요소에 active 추가
+        this.classList.add('active')
+    })
+});
 
-// news page-idx
-idxBtn(newsIdx, newsSlider, newsSliderItem);
+
+//// news_Slider
+// 자동 슬라이드
+setInterval(function () {
+    if (index2 < newsSliderItem.length - 3) {
+        index2 += 1;
+        newsSlider.style.transform = "translateX(-" + newsSlider.clientWidth / newsSliderItem.length * index2 + "px)";
+    } else {
+        index2 = 0;
+        newsSlider.style.transform = "translateX(-" + newsSlider.clientWidth / newsSliderItem.length * index2 + "px)";
+    }
+
+    // active
+    newsIdx.forEach(function (i, a) {
+        if (index2 == a) {
+            newsIdx[a].classList.add('active')
+        } else {
+            newsIdx[a].classList.remove('active')
+        }
+    })
+}, 2000)
+
+// 인덱스 버튼
+newsIdx.forEach(function (i, a, b) {
+    newsIdx[a].addEventListener('click', function (e) {
+        e.preventDefault();
+        index2 = a;
+
+        newsSlider.style.transform = "translateX(-" + newsSlider.clientWidth / newsSliderItem.length * a + "px)";
+
+        // 모든 요소에 active 제거
+        newsIdx.forEach(function (i) {
+            i.classList.remove('active')
+        })
+
+        // 클릭 요소에 active 추가
+        this.classList.add('active')
+    })
+});
