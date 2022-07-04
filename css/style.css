@@ -227,7 +227,6 @@ body {
 }
 #works .works_slider .slider_container .slider_item {
     background: var(--sb-color);
-    float: left;
     width: 33.4%;
     height: 360px;
     margin-right: 24px;
@@ -282,6 +281,7 @@ body {
     top: -16px;
     right: 16px;
     z-index: -1;
+    overflow: hidden;
 }
 #about .about_img ul li {
     box-sizing: border-box;
@@ -339,12 +339,15 @@ body {
     justify-content: space-between;
     flex-wrap: wrap;
 }
-#say .say div:nth-child(1), #say .say div:nth-child(2) {
-    width: 46%;
-    margin-bottom: 100px;
+#say .say .say_img {
+    width: 36%;
 }
-#say .say div:nth-child(3) {
+#say .say .tit {
+    width: 56%;
+}
+#say .say .say_cor {
     width: 100%;
+    padding-top: 100px;
 }
 #say .tit h4 {
     margin-bottom: 56px;
