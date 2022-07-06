@@ -64,12 +64,12 @@ workPrev.addEventListener('click', function (e) {
 });
 
 // 인덱스 버튼
-workIdx.forEach(function (i, a, b) {
+workIdx.forEach(function (i, a) {
     workIdx[a].addEventListener('click', function (e) {
         e.preventDefault();
         index1 = a;
 
-        newsSlider.style.transform = "translateX(-" + newsSlider.clientWidth / workSliderItem.length * a + "px)";
+        workSlider.style.transform = "translateX(-" + workSlider.clientWidth / workSliderItem.length * a + "px)";
 
         // 모든 요소에 active 제거
         workIdx.forEach(function (i) {

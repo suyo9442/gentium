@@ -28,11 +28,6 @@ img,fieldset {border:0 none;}
 /* 버튼 초기화 */
 button {
     background: none; cursor: pointer;
-    width: 200px;
-    height: 50px;
-    border: 2px solid var(--sb-color);
-    color: #fff;
-    font-weight: 700;
 }
 
 /* 반응형 */
