@@ -51,6 +51,24 @@ body {
 #header nav ul li a {
     color: #fff;
     display: block;
+    position: relative;
+    transition: all 0.3s;
+}
+#header nav ul li a:after {
+    content: '';
+    width: 0px;
+    height: 5px;
+    background: var(--sb-color);
+    position: absolute;
+    bottom: -10px;
+    left: 2px;
+    transition: all 0.3s;
+}
+#header nav ul li a:hover {
+    color: var(--sb-color);
+}
+#header nav ul li a:hover:after {
+    width: 30px;
 }
 
 
@@ -87,8 +105,23 @@ body {
     width: 32%;
     padding: 50px 40px;
     position: relative;
+    transition: all 0.3s;
+}
+#main .main_menu article:after {
+    content: '';
+    width: 100%;
+    height: 10%;
+    background: var(--bl-color);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.3s;
 }
 #main .main_menu article.active {
+    background: var(--sb-color);
+}
+#main .main_menu article.active:after {
+    top: -15px;
     background: var(--sb-color);
 }
 #main .main_menu article.active svg {
@@ -175,6 +208,13 @@ button {
 button:hover {
     background-color: var(--sb-color);
     color: var(--bl-color);
+}
+/* scrollAni */
+.opacity {
+    opacity: 0;
+}
+.scrollAni {
+    transition: all 1s;
 }
 
 
