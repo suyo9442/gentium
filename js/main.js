@@ -1,19 +1,20 @@
-//// m_menu
-let mBtn = document.querySelector('#header .m_btn');
-let mMenu = document.querySelector('#header .m_menu');
-let mClose = document.querySelector('#header .m_close')
+//// header m_menu
+let hBtn = document.querySelector('#header .m_btn');
+let hMenu = document.querySelector('#header .m_menu');
+let hClose = document.querySelector('#header .m_close')
 let openClose = 0;
 
-mBtn.addEventListener('click', function (e) {
+hBtn.addEventListener('click', function (e) {
     e.preventDefault();
 
-    mMenu.style.transform = 'translateX(0%)';
+    hMenu.style.transform = 'translateX(0%)';
 });
-mClose.addEventListener('click', function (e) {
+hClose.addEventListener('click', function (e) {
     e.preventDefault();
 
-    mMenu.style.transform = 'translateX(100%)';
+    hMenu.style.transform = 'translateX(100%)';
 });
+
 
 
 //// main_menu
@@ -175,7 +176,7 @@ var _scrollAni = function () {
     for (let i = 0; i < aniCon.length; i++) {
         var aniPos = aniCon[i].getBoundingClientRect().top;
 
-        if (aniPos - winH < -500) {
+        if (aniPos - winH < -450) {
             aniCon[i].classList.remove('opacity');
         } else {
             aniCon[i].classList.add('opacity');
@@ -184,3 +185,18 @@ var _scrollAni = function () {
 }
 
 window.addEventListener('scroll', _scrollAni);
+
+
+
+//// footer m_menu
+let fBtn = document.querySelector('#footer .m_btn');
+let fMenu = document.querySelector('#footer .m_menu');
+
+fBtn.addEventListener('mouseover', function (e) {
+    e.preventDefault();
+    fMenu.style.opacity = '1';
+});
+fMenu.addEventListener('mouseout', function (e) {
+    e.preventDefault();
+    fMenu.style.opacity = '0';
+});
