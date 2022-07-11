@@ -1,3 +1,21 @@
+//// m_menu
+let mBtn = document.querySelector('#header .m_btn');
+let mMenu = document.querySelector('#header .m_menu');
+let mClose = document.querySelector('#header .m_close')
+let openClose = 0;
+
+mBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    mMenu.style.transform = 'translateX(0%)';
+});
+mClose.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    mMenu.style.transform = 'translateX(100%)';
+});
+
+
 //// main_menu
 let mainMenu = document.querySelectorAll('#main .main_menu article');
 let order = 0;
@@ -19,6 +37,7 @@ setInterval(function () {
         }
     })
 }, 2000)
+
 
 
 //// work_Slider
@@ -53,6 +72,7 @@ workNext.addEventListener('click', function (e) {
         }
     }
 });
+
 
 workPrev.addEventListener('click', function (e) {
     e.preventDefault();
@@ -99,6 +119,7 @@ workIdx.forEach(function (i, a) {
 
 
 
+
 //// news_Slider
 let newsSlider = document.querySelector('#news .slider_container');
 let newsSliderItem = document.querySelectorAll('#news .slider_item');
@@ -142,6 +163,7 @@ newsIdx.forEach(function (i, a, b) {
         this.classList.add('active')
     })
 });
+
 
 
 //// 스크롤이벤트

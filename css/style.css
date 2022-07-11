@@ -16,7 +16,7 @@ body {
 
 /* 레이아웃 */
 .container {
-    width: 1440px;
+    width: 1280px;
     margin: 0 auto;
 }
 .row {
@@ -32,7 +32,9 @@ body {
 }
 #header .header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
+    padding: 18px 0;
 }
 #header h1 svg {
     padding-top: 10px;
@@ -70,7 +72,51 @@ body {
 #header nav ul li a:hover:after {
     width: 30px;
 }
-
+#header .m_btn {
+    display: none;
+    color: #fff;
+}
+#header .m_btn svg {
+    width: 32px;
+    height: 32px;
+}
+#header .m_menu {
+    background: var(--bl-color);
+    color: #fff;
+    width: 40%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    transform: translateX(100%);
+    transition: all 0.3s;
+}
+#header .m_menu .m_close {
+    color: #fff;
+}
+#header .m_menu .m_close svg {
+    width: 32px;
+    height: 32px;
+    float: right;
+    padding: 18px;
+}
+#header .m_menu ul {
+    margin: 14vw 8vw;
+}
+#header .m_menu ul li {
+    margin-bottom: 24px;
+}
+#header .m_menu ul li a {
+    font-size: 20px;
+    color: #fff;
+    display: block;
+    position: relative;
+    transition: all 0.3s;
+}
+#header .m_menu ul li a:hover {
+    color: var(--sb-color);
+}
 
 /* main */
 #main {
@@ -102,8 +148,8 @@ body {
 }
 #main .main_menu article {
     background: var(--bl-color);
-    width: 32%;
-    padding: 50px 40px;
+    width: 25%;
+    padding: 3vw 2.5vw;
     position: relative;
     transition: all 0.3s;
 }
@@ -229,8 +275,8 @@ button:hover {
 }
 #service .service_menu ul li {
     background: #E0E0E0;
-    padding: 32px 24px;
-    width: 32%;
+    padding: 2vw 1.5vw;
+    width: 28%;
     display: flex;
     align-items: center;
     margin-bottom: 24px;
@@ -262,6 +308,7 @@ button:hover {
 /* works */
 #works {
     background: var(--bg-color);
+    color: var(--wh-color);
 }
 #works .tit {
     display: flex;
@@ -281,13 +328,13 @@ button:hover {
     background: var(--sb-color);
     width: 33.4%;
     height: 360px;
-    margin-right: 24px;
+    margin: 12px;
     white-space: nowrap;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-#works .works_slider  .slider_container .slider_item .desc {
+#works .works_slider .slider_container .slider_item .desc {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.401);
@@ -307,23 +354,37 @@ button:hover {
     font-weight: 300;
     text-transform: uppercase;
 }
-#works .works_slider nav {
+#works .works_slider .slider_pagination {
+    text-align: center;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
-#works .works_slider nav .page-link {
-    background: none;
-    color: #fff;
-    padding: 8px 12px;
+#works .works_slider .slider_pagination li {
+    border: 1px solid var(--sb-color);
+    margin-left: -1px;
+    transition: all 0.3s;
 }
-#works .works_slider nav .page-link:hover {
+#works .works_slider .slider_pagination li:first-child {
+    border-radius: 20% 0 0 20%;
+}
+#works .works_slider .slider_pagination li:last-child {
+    border-radius: 0 20% 20% 0;
+}
+#works .works_slider .slider_pagination li a {
+    font-size: 1.3rem;
+    display: block;
+    padding: 6px 12px;
+    color:#fff;
+}
+#works .works_slider .slider_pagination li a svg {
+    width: 13px;
+    height: 13px;
+    padding-top: 4px;
+}
+#works .works_slider .slider_pagination li:hover {
     background: var(--sb-color);
 }
-#works .works_slider nav .active>.page-link, .page-link.active {
-    border-color: #fff;
-}
-#works .works_slider nav .page-idx.active {
+#works .works_slider .slider_pagination li.active {
     background: var(--sb-color);
 }
 
@@ -401,6 +462,7 @@ button:hover {
     font-size: 1.2rem;
 }
 
+
 /* say */
 #say {
     background: var(--wh-color);
@@ -438,26 +500,26 @@ button:hover {
 }
 #news .news_slider .slider_container {
     display: flex;
-    width: calc(33.4% * 6);
-    transition: transform 0.5s;
+    width: calc(34% * 6);
+    transition: all 0.5s;
     margin-bottom: 48px;
 }
 #news .news_slider .slider_container .slider_item {
     background-size: cover;
-    width: 33.4%;
+    width: 34%;
     height: 360px;
-    margin-right: 24px;
+    margin-right: 16px;
 }
 #news .news_slider  .slider_container .slider_item .desc {
+    width: 100%;
+    height: 100%;
+    display: block;
     background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0.401) 35%, rgba(255, 255, 255, 0) 100%);
     color: var(--wh-color);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100%;
-    padding: 4rem 2rem;
 }
 #news .news_slider  .slider_container .slider_item .desc strong {
     font-size: 1.2rem;
@@ -467,29 +529,33 @@ button:hover {
     font-weight: 300;
 }
 #news .news_slider  .slider_container .slider_item .desc p {
-    font-size: 2.4rem;
     text-align: center;
     font-weight: 700;
+    margin-bottom: 40px;
 }
-#news .news_slider nav {
+#news .news_slider .slider_pagination {
     display: flex;
     justify-content: center;
-    align-items: center;
 }
-#news .news_slider nav .page-link {
-    background: none;
-    color: var(--bl-color);
-    padding: 6px;
-    margin: 0 4px;
+#news .news_slider .slider_pagination li {
+    border: 1px solid var(--wh-color);
     border-radius: 50%;
+    transition: all 0.3s;
+    margin: 4px;
 }
-#news .news_slider nav .page-link:hover {
+#news .news_slider .slider_pagination li a {
+    display: block;
+    width: 14px;
+    height: 14px;
+    color:#fff;
+}
+#news .news_slider .slider_pagination li:hover {
     background: var(--sb-color);
 }
-#news .news_slider nav .active>.page-link, .page-link.active {
-    background: var(--sb-color) !important;
-    border-color: var(--sb-color);
+#news .news_slider .slider_pagination li.active {
+    background: var(--sb-color);
 }
+
 
 
 /* talk */
@@ -546,4 +612,143 @@ button:hover {
     display: block;
     color: #8A8A8A;
     font-size: 1.4rem;
+}
+
+
+/* 미디어쿼리 */
+@media (max-width: 1280px) {
+    /* 레이아웃 */
+    .container {
+        width: 100%;
+    }
+    .gap {
+        padding: 60px 0;
+    }
+}
+@media (max-width: 1024px) {
+    /* 레이아웃 */
+    .row {
+        padding: 0 40px;
+    }
+    /* 폰트 */
+    html {
+        font-size: 55%;
+    }
+    
+    /* main */
+    #main .main_menu article svg {
+        display: none;
+    }
+
+    /* service */
+    #service .service_menu ul li {
+        padding: 3vw 2vw;
+    }
+    /* about */
+    #about .about_img ul li:nth-child(1) {
+        width: calc(70% - 20px);
+    } 
+    #about .about_img ul li:nth-child(2),
+    #about .about_img ul li:nth-child(3) {
+        height: calc(605px / 2);
+        margin: 0 10px 10px 10px;
+    }
+    #about .about_img ul:after,
+    #about .about_img ul li:nth-child(1):after {
+        display: none;
+    }
+
+    /* say */
+    #say .say .say_cor ul {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    /* talk */
+    #talk .talk {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #talk .talk article {
+        margin: 12px 0 12px 0;
+    }
+    
+}
+@media (max-width: 768px) {
+    /* header */
+    #header nav {
+        display: none;
+    }
+    #header .m_btn {
+        display: block;
+        margin-left: auto;
+    }
+
+    /* main */
+    #main .main_tit {
+        padding: 100px 0;
+    }
+    #main .main_menu article {
+        padding: 5vw 3vw;
+    }
+    
+    /* service */
+    #service .service_menu ul li {
+        padding: 1vw 1.8vw;
+        margin-bottom: 12px;
+    }
+
+    /* works */
+    #works .works_slider .slider_container {
+        width: calc(50% * 6);
+    }
+    #works .works_slider .slider_container .slider_item {
+        width: 50%;
+    }
+
+    /* about */
+    #about .about_img ul li {
+        height: 430px;
+    }
+    #about .about_img ul li:nth-child(2), #about .about_img ul li:nth-child(3) {
+        height: calc(420px / 2);
+    }
+    #about .about_img ul li a span {
+        bottom: 16px;
+        left: 16px;
+    }
+
+    /* say */
+    #say .say .say_cor {
+        padding-top: 0;
+    }
+
+    /* news */
+    #news .news_slider .slider_container {
+        width: calc(50% * 6);
+    }
+    #news .news_slider .slider_container .slider_item {
+        width: 50%;
+    }
+
+    /* talk */
+    #talk .talk .talk_sns ul li a {
+        width: 40px;
+        height: 40px;
+    }
+    #talk .talk .talk_tit h3 {
+        font-size: 3.2rem;
+        font-weight: 800;
+    }
+}
+@media (max-width: 480px) {
+
+    /* service */
+    #service .service_menu ul li {
+        padding: 1vw 1.5vw;
+    }
+    #service .service_menu ul li {
+        width: 45%;
+    }
 }
